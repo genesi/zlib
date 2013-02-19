@@ -2,6 +2,7 @@
   version 1.2.7, May 2nd, 2012
 
   Copyright (C) 1995-2012 Jean-loup Gailly and Mark Adler
+  Copyright (C) 2009-2011 Jan Seiffert
   Copyright (c) 2010-2011 Code Aurora Forum. All rights reserved.
 
   This software is provided 'as-is', without any express or implied
@@ -38,7 +39,7 @@
 extern "C" {
 #endif
 
-#define ZLIB_VERSION "1.2.7"
+#define ZLIB_VERSION "1.2.7.f-genesi"
 #define ZLIB_VERNUM 0x127f
 #define ZLIB_VER_MAJOR 1
 #define ZLIB_VER_MINOR 2
