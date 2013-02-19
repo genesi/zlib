@@ -16,7 +16,7 @@ DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_HOST_ARCH       ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
 DEB_HOST_ARCH_OS    ?= $(shell dpkg-architecture -qDEB_HOST_GNU_OS)
 
-CFLAGS = `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -marm -mtune=cortex-a8 -mfpu=neon -Wall -D__ARM_HAVE_NEON -D_REENTRANT
+CFLAGS = `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -marm -mtune=cortex-a8 -mfpu=neon -Wall -D_REENTRANT
 LDFLAGS = `dpkg-buildflags --get LDFLAGS`
 
 # binutils doesn't supply the prefixed version normally like GCC does so

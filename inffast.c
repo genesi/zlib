@@ -9,9 +9,7 @@
 #include "inflate.h"
 #include "inffast.h"
 
-#ifdef __ARM_HAVE_NEON
 extern void inflate_fast_copy_neon(unsigned len, unsigned char **out, unsigned char *from);
-#endif
 
 #ifndef ASMINF
 
@@ -258,39 +256,11 @@ unsigned start;         /* inflate()'s starting value for strm->avail_out */
                             from = out - dist;  /* rest from output */
                         }
                     }
-#ifdef __ARM_HAVE_NEON
                     inflate_fast_copy_neon(len, &out, from);
-#else
-                    while (len > 2) {
-                        PUP(out) = PUP(from);
-                        PUP(out) = PUP(from);
-                        PUP(out) = PUP(from);
-                        len -= 3;
-                    }
-                    if (len) {
-                        PUP(out) = PUP(from);
-                        if (len > 1)
-                            PUP(out) = PUP(from);
-                    }
-#endif
                 }
                 else {
                     from = out - dist;          /* copy direct from output */
-#ifdef __ARM_HAVE_NEON
                     inflate_fast_copy_neon(len, &out, from);
-#else
-                    do {                        /* minimum length is three */
-                        PUP(out) = PUP(from);
-                        PUP(out) = PUP(from);
-                        PUP(out) = PUP(from);
-                        len -= 3;
-                    } while (len > 2);
-                    if (len) {
-                        PUP(out) = PUP(from);
-                        if (len > 1)
-                            PUP(out) = PUP(from);
-                    }
-#endif
                 }
             }
             else if ((op & 64) == 0) {          /* 2nd level distance code */
