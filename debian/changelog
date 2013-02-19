@@ -1,3 +1,10 @@
+zlib (1:1.2.7-1genesi3) maverick; urgency=low
+
+  * Integrate Jan Seiffert's adler32 optimizations
+  * Build with -marm for better performance
+
+ -- Matt Sealey <matt@genesi-usa.com>  Mon, 18 Feb 2013 20:39:44 -0600
+
 zlib (1:1.2.7-1genesi2) maverick; urgency=low
 
   * Integrate CodeAurora Forum inflate_fast NEON optimization

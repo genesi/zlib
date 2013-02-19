@@ -19,6 +19,17 @@
 #  define ZLIB_INTERNAL
 #endif
 
+/* Genesi: hack, these are usually predicated on gcc version but we
+ * know we only use 4.4 or above, and all this is available there
+ */
+#define noinline __attribute__((__noinline__))
+#define GCC_ATTR_UNUSED_PARAM __attribute__((__unused__))
+#undef likely
+#undef unlikely
+#define likely(x)   __builtin_expect(!!(x), 1)
+#define unlikely(x) __builtin_expect(!!(x), 0)
+/* end hack */
+
 #include "zlib.h"
 
 #if defined(STDC) && !defined(Z_SOLO)
@@ -28,6 +39,12 @@
 #  include <string.h>
 #  include <stdlib.h>
 #endif
+
+#define ROUND_TO(x , n) ((x) & ~((n) - 1L))
+#define DIV_ROUNDUP(a, b) (((a) + (b) - 1) / (b))
+#define ALIGN_DIFF(x, n) (((intptr_t)((x)+(n) - 1L) & ~((intptr_t)(n) - 1L)) - (intptr_t)(x))
+#define ALIGN_DOWN(x, n) (((intptr_t)(x)) & ~((intptr_t)(n) - 1L))
+#define ALIGN_DOWN_DIFF(x, n) (((intptr_t)(x)) & ((intptr_t)(n) - 1L))
 
 #ifdef Z_SOLO
    typedef long ptrdiff_t;  /* guess -- will be caught if guess is wrong */
