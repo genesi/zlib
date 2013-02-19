@@ -10,11 +10,13 @@
  ZLIB_1.2.5.1@ZLIB_1.2.5.1 1:1.2.6
  ZLIB_1.2.5.2@ZLIB_1.2.5.2 1:1.2.6
  adler32@Base 1:1.1.4
+ adler32_combine64@ZLIB_1.2.3.3 1:1.2.3.3
  adler32_combine@ZLIB_1.2.2 1:1.2.2
  compress2@Base 1:1.1.4
  compress@Base 1:1.1.4
  compressBound@ZLIB_1.2.0 1:1.2.0
  crc32@Base 1:1.1.4
+ crc32_combine64@ZLIB_1.2.3.3 1:1.2.3.3
  crc32_combine@ZLIB_1.2.2 1:1.2.2
  deflate@Base 1:1.1.4
  deflateBound@ZLIB_1.2.0 1:1.2.0
@@ -45,15 +47,19 @@
  gzgetc@Base 1:1.1.4
  gzgetc_@ZLIB_1.2.5.2 1:1.2.6
  gzgets@Base 1:1.1.4
+ gzoffset64@ZLIB_1.2.3.5 1:1.2.6
  gzoffset@ZLIB_1.2.3.5 1:1.2.6
+ gzopen64@ZLIB_1.2.3.3 1:1.2.3.3
  gzopen@Base 1:1.1.4
  gzprintf@Base 1:1.1.4
  gzputc@Base 1:1.1.4
  gzputs@Base 1:1.1.4
  gzread@Base 1:1.1.4
  gzrewind@Base 1:1.1.4
+ gzseek64@ZLIB_1.2.3.3 1:1.2.3.3
  gzseek@Base 1:1.1.4
  gzsetparams@Base 1:1.1.4
+ gztell64@ZLIB_1.2.3.3 1:1.2.3.3
  gztell@Base 1:1.1.4
  gzungetc@ZLIB_1.2.0.2 1:1.2.0.2
  gzwrite@Base 1:1.1.4

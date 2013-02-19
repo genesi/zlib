@@ -1,3 +1,10 @@
+zlib (1:1.2.7-1genesi4) maverick; urgency=low
+
+  * Correctly comply with zlib "plainly marked" stipulations
+  * Fix symbols list
+
+ -- Matt Sealey <matt@genesi-usa.com>  Mon, 18 Feb 2013 21:42:21 -0600
+
 zlib (1:1.2.7-1genesi3) maverick; urgency=low
 
   * Integrate Jan Seiffert's adler32 optimizations
