@@ -1,3 +1,9 @@
+zlib (1:1.2.7-1genesi2) maverick; urgency=low
+
+  * Integrate CodeAurora Forum inflate_fast NEON optimization
+
+ -- Matt Sealey <matt@genesi-usa.com>  Mon, 18 Feb 2013 19:14:12 -0600
+
 zlib (1:1.2.7-1genesi1) maverick; urgency=low
 
   * Upstream bump

@@ -63,8 +63,8 @@ PIC_OBJG = compress.lo uncompr.lo gzclose.lo gzlib.lo gzread.lo gzwrite.lo
 PIC_OBJC = $(PIC_OBJZ) $(PIC_OBJG)
 
 # to use the asm code: make OBJA=match.o, PIC_OBJA=match.lo
-OBJA =
-PIC_OBJA =
+OBJA = inflate_fast_copy_neon.o
+PIC_OBJA = inflate_fast_copy_neon.lo
 
 OBJS = $(OBJC) $(OBJA)
 
@@ -154,9 +154,20 @@ minigzip64.o: test/minigzip.c zlib.h zconf.h
 
 .SUFFIXES: .lo
 
+.c.o:
+	$(CC) $(CFLAGS) -c -o $*.o $<
+
+.s.o:
+	$(CC) $(CFLAGS) -c -o $*.o $<
+
 .c.lo:
 	-@mkdir objs 2>/dev/null || test -d objs
 	$(CC) $(SFLAGS) -DPIC -c -o objs/$*.o $<
+	-@mv objs/$*.o $@
+
+.s.lo:
+	-@mkdir objs 2>/dev/null || test -d objs
+	$(CC) $(SFLAGS) -DPIC -c -o objs/$(notdir $*.o) $<
 	-@mv objs/$*.o $@
 
 placebo $(SHAREDLIBV): $(PIC_OBJS) libz.a
